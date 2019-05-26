@@ -1736,7 +1736,7 @@ hr {
 /*  p. Contact Section
 /* =================================================================== */
 #contact {
-	background: #12151b;
+	background: #e6e4e4;
 	padding-top: 120px;
 	padding-bottom: 102px;
 	overflow: hidden;
@@ -1745,7 +1745,10 @@ hr {
 	max-width: 784px;
 }
 #contact h1 {
-	color: white;
+	color: rgb(0, 0, 0);
+}
+#contact p {
+	color: rgb(0, 0, 0);
 }
 
 /* contact form */

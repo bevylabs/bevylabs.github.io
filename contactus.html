@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel='stylesheet' href='css/style.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <div class="container-fluid">
+
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Home.html"><span class="glyphicon glyphicon-info-sign"></span> | Python
+                    Sinhala</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="Home.html"><span class="glyphicon glyphicon-education"></span> Home | පාඩම් මාලාවට</a></li>
+                    
+                  
+                </ul>
+                <hr>
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="products.html"><span class="glyphicon glyphicon-gift"></span> Other Products | අපගේ අනෙක් නිර්මාණ</a></li>
+                        <li><a href="aboutus.html"><span class="glyphicon glyphicon-question-sign"></span> About us | අපි කවුරුද ?</a></li>
+                        <li class="active"><a href="contactus.html"><span class="glyphicon glyphicon-info-sign"></span> Contact Us | අපව සම්බන්ද කරගන්න</a></li>
+                   
+                    <li><a href="donation.html"><span class="glyphicon glyphicon-heart"></span> Need your support | ඔබගේ දායකත්වය</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+
+        <hr>
+        <hr>
+        
+        <div class="panel panel-primary">
+                <div class="panel-heading">Our Website | අපේ වෙබ් සයිට් එක </div>
+                <div class="panel-body">
+                        <kbd>bevylabs.org</kbd><br>
+                        BevyLabs එක ගැන වැඩිදුර විස්තර බලාගන්න අපේ වෙබ් සයිට් එකට ගිහින් බලන්න.
+            </div>
+            
+        </div>
+    <div class="panel panel-primary">
+            <div class="panel-heading">Our Facebook Page | අපේ ෆේස් බුක් පේජ් එක </div>
+            <div class="panel-body"><kbd>facebook.com/bevylabs</kbd><br>
+            
+                
+                ෆේස් බුක් පේජ් එකට ගිහින් බලන්න, අපේ අලුත්ම Updates ඔයාට බලාගන්න පුලුවන්.
+            </div>
+          </div>
+          <div class="panel panel-primary">
+                <div class="panel-heading">Our Youtube Channel | අපේ යූටියුබ් චැනල් එක </div>
+                <div class="panel-body">
+                        <kbd>youtube.com/bevylabs</kbd><br>
+                        Free වෙලාවක් සෙට් උන වෙලාවට අපි වීඩියොස් කරල, අපේ දැනුම බෙදාගන්නව හැමෝත් එක්කම. ඔයත් සෙට් වෙන්න අපෙ චැන්ල් එකත් එක්ක. ඇවිත් දැනුම බෙදාගන්න.
+            </div>
+            
+        </div>
+
+          <div class="panel panel-primary">
+                <div class="panel-heading">Email Address | අපේ ඊමේල් ඇඩ්‍රස් එක </div>
+                <div class="panel-body"><kbd>bevylabs@gmail.com</kbd><br>
+                        ඔයාලගේ අදහස් මේ ඊමේල් එකට එවන්න. මේ ඇප් එක දියුණු කරන්න ඔයාගේ අදහස් අපිට ගොඩක් වටිනව.
+                </div>
+              </div>
+    </div>
+
+
+</body>
+
+<script src="../clipboard.min.js"></script>
+<script>
+    var clipboard = new Clipboard('.btn');
+
+    clipboard.on('success', function (e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function (e) {
+        console.log(e);
+    });
+    function myFunction1() {
+        document.getElementById("btn1").innerHTML = "Copied";
+    }
+    function myFunction2() {
+        document.getElementById("btn2").innerHTML = "Copied";
+    }
+</script>
+
+</html>
+
+<script type="text/javascript">
+    $(function () {
+        $(".includedContent").load("N2.html");
+    });
+</script>
