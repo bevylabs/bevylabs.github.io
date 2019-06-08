@@ -832,7 +832,7 @@ header .logo a {
 }
 @media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi) {
 	header .logo a {
-		background-image: url("../images/logo-@2x.png");
+		
 		-webkit-background-size: 126px 12px;
 		-moz-background-size: 126px 12px;
 		background-size: 126px 12px;
