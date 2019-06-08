@@ -813,7 +813,7 @@ header .logo {
 	/* add position relative since z-index only applies to
 	elements that have been given an explicit position */
 	position: relative;
-	z-index: 992;
+	z-index: 1;
 }
 header .logo a {
 	display: block;
