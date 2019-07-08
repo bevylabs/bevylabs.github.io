@@ -1676,7 +1676,7 @@ hr {
 /*  o. Journal Section
 /* =================================================================== */
 #journal {
-	background: #0e0222 url(../images/cover.jpg) no-repeat bottom center fixed;
+	background: #0e0222 url(../images/source.gif) no-repeat bottom center fixed;
 	-webkit-background-size: cover !important;
 	-moz-background-size: cover !important;
 	background-size: cover !important;
@@ -1685,7 +1685,7 @@ hr {
 	width: 100%;
 }
 #journal h1, #journal h3, #journal h3 a {
-	color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 }
 #journal h3 {
 	font: 16px/27px "raleway-heavy", sans-serif;
@@ -1698,7 +1698,7 @@ hr {
 	margin: 0;
 }
 #journal p {
-	color: #334553;
+	color: #e2e3e4;
 }
 #journal #blog-wrapper {
 	margin: 24px 0 0 0;
