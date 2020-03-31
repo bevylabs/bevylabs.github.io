@@ -1576,6 +1576,43 @@ hr {
 
 
 /* 
+/*  m. Product Section
+/* =================================================================== */
+#products {
+	background: #ecf0f1;
+	padding-top: 120px;
+	padding-bottom: 120px;
+	text-align: center;
+}
+.products-list {
+	margin: 15px -22px 0 -22px;
+}
+.products-list .bgrid {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 0 22px;
+}
+.products-list .icon-part {
+	background: #229ff2;
+	color: white;
+	width: 72px;
+	padding: 15px 3px;
+	font-size: 40px;
+	border-radius: 3px;
+	margin: 0 auto;
+}
+.products-list h3 {
+	font: 16px/24px "raleway-heavy", sans-serif;
+	padding: 0;
+}
+.products-list p {
+	color: #707273;
+	position: relative;
+	top: -6px;
+}
+
+
+/* 
 /*  n. About Section
 /* =================================================================== */
 
