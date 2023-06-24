@@ -577,7 +577,7 @@ different heights to align properly. */
 /* f. MISC
 ===================================================================== */
 
-/* Clearing - (http://nicolasgallagher.com/micro-clearfix-hack/
+/* Clearing - (https://nicolasgallagher.com/micro-clearfix-hack/
 --------------------------------------------------------------------- */
 .group:before, .group:after {
 	content: "";
