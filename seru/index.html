@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free SERU Practice Questions with Answers (London PHV, 2026)</title>
+<meta name="description" content="20 free SERU practice questions with answers and explanations for London private hire (PCO) drivers, the test format, how to prepare, and a SERU mock test app with no subscription.">
+<link rel="canonical" href="https://bevylabs.github.io/seru/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free SERU practice questions with answers">
+<meta property="og:description" content="Try 20 SERU questions for London PHV drivers, with explanations in English, Urdu, Bengali, Arabic and Romanian.">
+<meta property="og:url" content="https://bevylabs.github.io/seru/">
+<link rel="icon" href="../favicon.png">
+<style>
+:root {
+  --bg: #f4f7f6; --card: #ffffff; --ink: #1f2a29; --muted: #5b6b69; --line: #d6e1df;
+  --brand: #0f766e; --brand-ink: #ffffff; --soft: #e3f1ef; --good: #15803d; --good-bg: #e7f6ec;
+  --bad: #b42318; --bad-bg: #fdecea;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1716; --card: #17221f; --ink: #e6efed; --muted: #9db0ad; --line: #2a3a37;
+    --brand: #2bb3a3; --brand-ink: #062320; --soft: #1d302c; --good: #5fd28a; --good-bg: #16301f;
+    --bad: #ff8a80; --bad-bg: #3a1c1a;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 0 16px 64px; }
+a { color: var(--brand); }
+header.hero { padding: 40px 0 8px; }
+.eyebrow { color: var(--brand); font-weight: 700; letter-spacing: .02em; margin: 0; }
+h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 8px 0 12px; }
+h2 { font-size: 24px; line-height: 1.25; margin: 48px 0 12px; }
+.lead { font-size: 19px; color: var(--muted); margin: 0 0 20px; }
+.cta { display: inline-block; background: var(--brand); color: var(--brand-ink); text-decoration: none;
+  font-weight: 700; padding: 12px 20px; border-radius: 12px; }
+.cta:hover { filter: brightness(1.08); }
+.small { font-size: 14px; color: var(--muted); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; padding: 0;
+  list-style: none; margin: 20px 0; }
+.facts li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.facts b { display: block; font-size: 22px; }
+.toolbar { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 10px 0; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+.toolbar label { font-size: 15px; color: var(--muted); }
+select { font: inherit; font-size: 15px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink); }
+#score { font-weight: 700; }
+.q { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin: 16px 0; }
+.meta { margin: 0; font-size: 14px; color: var(--muted); }
+.q h3 { font-size: 19px; line-height: 1.4; margin: 6px 0 12px; }
+.gap { color: var(--brand); font-weight: 700; }
+.opts { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.opt { width: 100%; display: flex; gap: 12px; align-items: flex-start; text-align: left; font: inherit;
+  color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
+  padding: 10px 12px; cursor: pointer; }
+.opt:hover:not(:disabled) { border-color: var(--brand); }
+.opt:disabled { cursor: default; }
+.key { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--soft); color: var(--brand); font-weight: 700; font-size: 14px; }
+.opt.right { background: var(--good-bg); border-color: var(--good); }
+.opt.right .key { background: var(--good); color: var(--card); }
+.opt.wrong { background: var(--bad-bg); border-color: var(--bad); }
+.opt.wrong .key { background: var(--bad); color: var(--card); }
+.ans { margin-top: 12px; }
+.ans summary { cursor: pointer; color: var(--brand); font-weight: 600; }
+.ans .right { margin: 10px 0 4px; }
+.expl { margin: 4px 0; }
+.expl[dir="rtl"] { text-align: right; font-size: 19px; }
+.panel { background: var(--soft); border-radius: 16px; padding: 20px; margin: 24px 0; }
+.panel h2 { margin-top: 0; }
+.panel ul { padding-left: 20px; }
+.faq { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 10px 0; }
+.faq summary { cursor: pointer; font-weight: 700; }
+.faq p { margin: 8px 0 0; }
+ol.sections { columns: 2; column-gap: 24px; padding-left: 22px; }
+@media (max-width: 480px) { ol.sections { columns: 1; } }
+footer { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 16px; }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the SERU assessment?", "acceptedAnswer": {"@type": "Answer", "text": "SERU stands for Safety, Equality and Regulatory Understanding. Transport for London (TfL) requires London private hire (PHV, often called PCO) drivers to pass it. It tests what is in TfL's PHV Driver's Handbook: licensing, private hire journeys, staying safe, driver behaviour, driving and parking in London, safer driving, equality and disability, safeguarding and ridesharing."}}, {"@type": "Question", "name": "What is the SERU test format?", "acceptedAnswer": {"@type": "Answer", "text": "It is a computer-based test taken at TfL, with multiple choice questions and fill-in-the-gap sentences. It is widely reported as 37 questions in 45 minutes, with 60% needed to pass. Check TfL's SERU page for the latest details before your test."}}, {"@type": "Question", "name": "How many people pass SERU?", "acceptedAnswer": {"@type": "Answer", "text": "Fewer than you might think. Freedom of information figures reported by Taxi-Point showed that only 54% of private hire applicants passed between October 2025 and April 2026. Practising with timed mock tests and reviewing your wrong answers makes a real difference."}}, {"@type": "Question", "name": "How should I prepare for SERU?", "acceptedAnswer": {"@type": "Answer", "text": "Read the PHV Driver's Handbook one section at a time, then practise questions on that section straight away. Once you are scoring well, take full timed mock tests (37 questions, 45 minutes) and go back over every question you got wrong until you understand why the right answer is right."}}, {"@type": "Question", "name": "Can I get SERU explanations in Urdu, Bengali, Arabic or Romanian?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The SERU test itself is in English, but the SERU Mock Test app explains every answer in English, Urdu, Bengali, Arabic and Romanian, so you can understand the rules in the language you are most comfortable with."}}, {"@type": "Question", "name": "Is there a SERU practice app without a subscription?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. SERU Mock Test: PCO Licence (by BevyLabs, Android) is free to try with 30 practice questions, the section 1 study notes and a full mock test. One payment of £6.99 unlocks all 433 questions, every mock test and all study notes for good. No subscription, no ads, and it works offline."}}, {"@type": "Question", "name": "Is this page or the app official TfL material?", "acceptedAnswer": {"@type": "Answer", "text": "No. BevyLabs is independent and is not affiliated with, endorsed by or connected to Transport for London. All questions are written by us. Always read TfL's own PHV Driver's Handbook too."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "SERU Mock Test: PCO Licence", "operatingSystem": "Android", "applicationCategory": "EducationalApplication", "url": "https://play.google.com/store/apps/details?id=com.bevylabs.pco_prep", "installUrl": "https://play.google.com/store/apps/details?id=com.bevylabs.pco_prep", "description": "SERU assessment practice for London private hire (PHV/PCO) drivers: 433 questions, mock tests in the real format and explanations in English, Urdu, Bengali, Arabic and Romanian. Free to try; one-time £6.99 unlock, no subscription.", "offers": [{"@type": "Offer", "price": "0", "priceCurrency": "GBP", "name": "Free version"}, {"@type": "Offer", "price": "6.99", "priceCurrency": "GBP", "name": "Full unlock (one-time)"}], "publisher": {"@type": "Organization", "name": "BevyLabs", "url": "https://bevylabs.github.io/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Quiz", "name": "Free SERU practice questions for London PHV drivers", "about": "TfL SERU assessment (Safety, Equality and Regulatory Understanding)", "educationalLevel": "London private hire driver licence applicants", "hasPart": [{"@type": "Question", "name": "You are driving to pick up a passenger and your badge is in the glove box. Is this OK?", "acceptedAnswer": {"@type": "Answer", "text": "No, you must wear it where people can clearly see it"}}, {"@type": "Question", "name": "Another driver asks to borrow your badge for one evening. What should you do?", "acceptedAnswer": {"@type": "Answer", "text": "Refuse, because nobody else may use your badge"}}, {"@type": "Question", "name": "If a police officer asks to see your PHV driver's licence, you must show it straight away or within ___ days.", "acceptedAnswer": {"@type": "Answer", "text": "7"}}, {"@type": "Question", "name": "Your vehicle's licence discs have been stolen. Who should contact TfL?", "acceptedAnswer": {"@type": "Answer", "text": "The vehicle owner, straight away"}}, {"@type": "Question", "name": "You have a collision while driving a PHV. Who must you give the insurance details to?", "acceptedAnswer": {"@type": "Answer", "text": "A passenger or member of the public involved"}}, {"@type": "Question", "name": "Can you drop off a passenger at an airport taxi rank?", "acceptedAnswer": {"@type": "Answer", "text": "No, PHVs must not stop or wait there for any reason"}}, {"@type": "Question", "name": "Your passenger asks to pick up two friends on the way. What should you do?", "acceptedAnswer": {"@type": "Answer", "text": "Tell your operator when it is safe, so the fare can be updated"}}, {"@type": "Question", "name": "Which of these is never an acceptable reason to refuse a passenger?", "acceptedAnswer": {"@type": "Answer", "text": "They have an assistance dog"}}, {"@type": "Question", "name": "A passenger starts shouting abuse at you during a journey. What are you entitled to do first?", "acceptedAnswer": {"@type": "Answer", "text": "Tell them you won't accept that behaviour"}}, {"@type": "Question", "name": "You can't calm an aggressive passenger. What should you do?", "acceptedAnswer": {"@type": "Answer", "text": "Stop somewhere safe, switch off, take the keys and get out"}}, {"@type": "Question", "name": "Which of these topics should you never make jokes about?", "acceptedAnswer": {"@type": "Answer", "text": "Someone's religion"}}, {"@type": "Question", "name": "Can you wait for a passenger on a double yellow line?", "acceptedAnswer": {"@type": "Answer", "text": "No, you can only stop there long enough for them to get in or out"}}, {"@type": "Question", "name": "What could happen if you wait on a taxi rank in your PHV?", "acceptedAnswer": {"@type": "Answer", "text": "A fine, and TfL could suspend or revoke your licence"}}, {"@type": "Question", "name": "You are stopped at traffic lights. Can you use your hand-held phone?", "acceptedAnswer": {"@type": "Answer", "text": "No, it is still illegal when you are stopped in traffic"}}, {"@type": "Question", "name": "Who must wear a seatbelt in a PHV?", "acceptedAnswer": {"@type": "Answer", "text": "All adults"}}, {"@type": "Question", "name": "A passenger arrives with an assistance dog. What must you do?", "acceptedAnswer": {"@type": "Answer", "text": "Accept them and let the dog sit in the footwell with them"}}, {"@type": "Question", "name": "How should you give change to a vision-impaired passenger?", "acceptedAnswer": {"@type": "Answer", "text": "Count the coins and notes into their hand"}}, {"@type": "Question", "name": "A young passenger tells you they are going to meet someone they met online for the first time. What might this be?", "acceptedAnswer": {"@type": "Answer", "text": "A sign that they could be at risk"}}, {"@type": "Question", "name": "You think a passenger may be a child at risk. Who must you report it to?", "acceptedAnswer": {"@type": "Answer", "text": "Your operator and the police"}}, {"@type": "Question", "name": "What is one safety risk of ridesharing?", "acceptedAnswer": {"@type": "Answer", "text": "One passenger may learn personal information about another"}}]}</script>
+</head>
+<body>
+<main>
+<header class="hero">
+  <p class="eyebrow">SERU assessment · London private hire (PCO)</p>
+  <h1>Free SERU practice questions with answers</h1>
+  <p class="lead">20 questions like the real TfL SERU test, each with a clear explanation, in English, Urdu, Bengali, Arabic or Romanian. Tap an answer to check it.</p>
+  <a class="cta" href="https://play.google.com/store/apps/details?id=com.bevylabs.pco_prep">Get all 433 questions on Android</a>
+  <p class="small">From the SERU Mock Test app by BevyLabs. Free to try, then £6.99 once. No subscription.</p>
+</header>
+
+<ul class="facts" aria-label="SERU at a glance">
+  <li><b>37</b>questions (widely reported)</li>
+  <li><b>45 min</b>to finish</li>
+  <li><b>60%</b>needed to pass</li>
+  <li><b>54%</b>of PHV applicants passed (Oct 2025 to Apr 2026)</li>
+</ul>
+<p class="small">Format as widely reported; check <a href="https://tfl.gov.uk/tph-seru">TfL's SERU page</a> before your test. Pass rate from <a href="https://www.taxi-point.co.uk/post/black-cab-drivers-smash-tfl-safety-equality-and-regulation-test-as-private-hire-pass-rates-lag-far">Taxi-Point's report of TfL figures</a>.</p>
+
+<h2 id="questions">SERU practice questions</h2>
+<div class="toolbar">
+  <label>Explanations in <select id="lang"><option value="en">English</option><option value="ur">اردو</option><option value="bn">বাংলা</option><option value="ar">العربية</option><option value="ro">Română</option></select></label>
+  <span id="score" aria-live="polite">0 of 20 answered</span>
+</div>
+
+<article class="q" id="q1" data-answer="3">
+  <p class="meta">Question 1 · Driver licensing · Multiple choice</p>
+  <h3>You are driving to pick up a passenger and your badge is in the glove box. Is this OK?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Yes, if your operator has your details</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Yes, as long as there is no passenger yet</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Yes, as long as it is in the car</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>No, you must wear it where people can clearly see it</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: D.</strong> No, you must wear it where people can clearly see it</p>
+    <p class="expl" lang="en" data-lang="en">Driving to a pickup counts as working, so the badge must be worn and easy to see.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>پک اپ کے لیے جانا بھی کام میں شمار ہوتا ہے، اس لیے بیج پہنا ہوا اور آسانی سے نظر آنے والا ہونا چاہیے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>যাত্রী তুলতে যাওয়াও কাজের মধ্যে পড়ে, তাই ব্যাজ পরে থাকতে হবে এবং সহজে দেখা যেতে হবে।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>القيادة إلى نقطة الاصطحاب تُعدّ عملًا، لذا يجب أن ترتدي الشارة بشكل واضح للعين.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Drumul spre o preluare se consideră lucru, așa că insigna trebuie purtată și să se vadă ușor.</p>
+  </details>
+</article>
+<article class="q" id="q2" data-answer="2">
+  <p class="meta">Question 2 · Driver licensing · Multiple choice</p>
+  <h3>Another driver asks to borrow your badge for one evening. What should you do?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Agree, if they have a DVLA licence</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Agree, if they are licensed by another council</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Refuse, because nobody else may use your badge</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Agree, if your operator says it is fine</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: C.</strong> Refuse, because nobody else may use your badge</p>
+    <p class="expl" lang="en" data-lang="en">Your badge is for you alone. Letting anyone else use it for bookings is not allowed.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>آپ کا بیج صرف آپ کے لیے ہے۔ کسی اور کو بکنگ کے لیے اسے استعمال کرنے دینا منع ہے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>আপনার ব্যাজ শুধু আপনার জন্য। অন্য কাউকে বুকিংয়ের জন্য এটি ব্যবহার করতে দেওয়া নিষেধ।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>شارتك لك وحدك. لا يُسمح بأن تترك أي شخص آخر يستخدمها للحجوزات.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Insigna este doar a dvs. Nu aveți voie să lăsați pe altcineva să o folosească pentru curse.</p>
+  </details>
+</article>
+<article class="q" id="q3" data-answer="0">
+  <p class="meta">Question 3 · Driver licensing · Fill the gap</p>
+  <h3>If a police officer asks to see your PHV driver&#x27;s licence, you must show it straight away or within <span class="gap">_____</span> days.</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>7</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>14</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>21</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>28</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: A.</strong> 7</p>
+    <p class="expl" lang="en" data-lang="en">You must show it at once or within seven days at most.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>آپ کو اسے فوراً یا زیادہ سے زیادہ سات دن کے اندر دکھانا ہوگا۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>আপনাকে এটি তখনই অথবা সর্বোচ্চ সাত দিনের মধ্যে দেখাতে হবে।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>يجب أن تُظهرها فورًا أو خلال سبعة أيام كحد أقصى.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Trebuie să o arătați imediat sau în cel mult șapte zile.</p>
+  </details>
+</article>
+<article class="q" id="q4" data-answer="0">
+  <p class="meta">Question 4 · Vehicle licensing · Multiple choice</p>
+  <h3>Your vehicle&#x27;s licence discs have been stolen. Who should contact TfL?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>The vehicle owner, straight away</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>The police, within 72 hours</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Your operator, at the end of the month</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Nobody, until the licence is renewed</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: A.</strong> The vehicle owner, straight away</p>
+    <p class="expl" lang="en" data-lang="en">The owner should contact TfL at once to get new discs.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>مالک کو نئی ڈسکیں لینے کے لیے فوراً TfL سے رابطہ کرنا چاہیے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>নতুন ডিস্ক পেতে মালিককে সঙ্গে সঙ্গে TfL-এর সঙ্গে যোগাযোগ করতে হবে।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>يجب على المالك التواصل مع TfL فورًا للحصول على أقراص جديدة.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Proprietarul trebuie să contacteze imediat TfL pentru discuri noi.</p>
+  </details>
+</article>
+<article class="q" id="q5" data-answer="2">
+  <p class="meta">Question 5 · Vehicle licensing · Multiple choice</p>
+  <h3>You have a collision while driving a PHV. Who must you give the insurance details to?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Only your operator</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Only the police</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>A passenger or member of the public involved</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Nobody, because your insurer deals with it</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: C.</strong> A passenger or member of the public involved</p>
+    <p class="expl" lang="en" data-lang="en">After a collision, passengers and members of the public are entitled to the insurance details.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>حادثے کے بعد مسافروں اور عام لوگوں کو انشورنس کی تفصیلات لینے کا حق ہے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>দুর্ঘটনার পরে যাত্রী ও সাধারণ মানুষ ইনস্যুরেন্সের বিবরণ পাওয়ার অধিকার রাখেন।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>بعد التصادم، يحق للركاب وأفراد الجمهور الحصول على تفاصيل التأمين.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>După o coliziune, pasagerii și persoanele implicate au dreptul la detaliile asigurării.</p>
+  </details>
+</article>
+<article class="q" id="q6" data-answer="3">
+  <p class="meta">Question 6 · Private hire journeys · Multiple choice</p>
+  <h3>Can you drop off a passenger at an airport taxi rank?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Yes, if no taxis are waiting</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Yes, if the passenger has heavy bags</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Yes, if it is quick</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>No, PHVs must not stop or wait there for any reason</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: D.</strong> No, PHVs must not stop or wait there for any reason</p>
+    <p class="expl" lang="en" data-lang="en">PHVs can&#x27;t use airport taxi ranks at all: no stopping, waiting, pickups or drop-offs.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>PHV ایئرپورٹ ٹیکسی رینک بالکل استعمال نہیں کر سکتیں: نہ رکنا، نہ انتظار، نہ مسافر اٹھانا، نہ اتارنا۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>PHV বিমানবন্দরের ট্যাক্সি র‍্যাঙ্ক একেবারেই ব্যবহার করতে পারবে না: থামা, অপেক্ষা, যাত্রী তোলা বা নামানো কিছুই না।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>لا يمكن لمركبات PHV استخدام مواقف التاكسي في المطار إطلاقًا: لا توقف ولا انتظار ولا اصطحاب ولا إنزال.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>PHV-urile nu pot folosi deloc stațiile de taxi din aeroport: fără oprire, așteptare, preluare sau lăsare de pasageri.</p>
+  </details>
+</article>
+<article class="q" id="q7" data-answer="1">
+  <p class="meta">Question 7 · Private hire journeys · Multiple choice</p>
+  <h3>Your passenger asks to pick up two friends on the way. What should you do?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Tell the passengers to pay the friends&#x27; share in cash</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Tell your operator when it is safe, so the fare can be updated</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Refuse, because extra passengers are never allowed</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Pick them up and charge whatever you think is fair</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: B.</strong> Tell your operator when it is safe, so the fare can be updated</p>
+    <p class="expl" lang="en" data-lang="en">Extra passengers, extra luggage or a new destination can change the fare, so your operator needs to know.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>اضافی مسافر، اضافی سامان یا نئی منزل سے کرایہ بدل سکتا ہے، اس لیے آپریٹر کو معلوم ہونا چاہیے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>বাড়তি যাত্রী, বাড়তি মালপত্র বা নতুন গন্তব্যে ভাড়া বদলাতে পারে, তাই অপারেটরকে জানাতে হবে।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>الركاب الإضافيون أو الأمتعة الإضافية أو وجهة جديدة قد تغيّر الأجرة، لذا يجب أن يعلم المشغّل.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Pasagerii în plus, bagajele în plus sau o destinație nouă pot schimba tariful, așa că operatorul trebuie să știe.</p>
+  </details>
+</article>
+<article class="q" id="q8" data-answer="1">
+  <p class="meta">Question 8 · Private hire journeys · Multiple choice</p>
+  <h3>Which of these is never an acceptable reason to refuse a passenger?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>They are acting violently</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>They have an assistance dog</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>They are carrying something inflammable</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>They have open bottles of alcohol</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: B.</strong> They have an assistance dog</p>
+    <p class="expl" lang="en" data-lang="en">You must not refuse passengers because they are disabled or travelling with an assistance dog.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>آپ مسافروں کو معذوری یا اسسٹنس ڈاگ کی وجہ سے انکار نہیں کر سکتے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>প্রতিবন্ধিতা বা সহায়ক কুকুরের কারণে আপনি যাত্রীকে প্রত্যাখ্যান করতে পারবেন না।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>لا يجوز لك رفض الركاب بسبب إعاقتهم أو لأن معهم كلب مساعدة.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Nu aveți voie să refuzați pasageri pentru că au o dizabilitate sau călătoresc cu un câine de asistență.</p>
+  </details>
+</article>
+<article class="q" id="q9" data-answer="0">
+  <p class="meta">Question 9 · Staying safe · Multiple choice</p>
+  <h3>A passenger starts shouting abuse at you during a journey. What are you entitled to do first?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Tell them you won&#x27;t accept that behaviour</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Stop in the middle of the road and get out</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Ignore it and say nothing until the end</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Shout back so they stop</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: A.</strong> Tell them you won&#x27;t accept that behaviour</p>
+    <p class="expl" lang="en" data-lang="en">You have the right to make clear that abuse is not acceptable. If that doesn&#x27;t work and it is safe, you can ask them to get out.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>آپ کو واضح کرنے کا حق ہے کہ بدسلوکی قابلِ قبول نہیں۔ اگر اس سے فرق نہ پڑے اور ایسا کرنا محفوظ ہو تو آپ انہیں اترنے کو کہہ سکتے ہیں۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>আপনার স্পষ্ট করে বলার অধিকার আছে যে গালাগাল মেনে নেওয়া হবে না। তাতে কাজ না হলে এবং নিরাপদ হলে আপনি তাদের নেমে যেতে বলতে পারেন।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>من حقك أن توضّح أن الإساءة غير مقبولة. إذا لم ينفع ذلك وكان الأمر آمنًا، يمكنك أن تطلب منه النزول.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Aveți dreptul să spuneți clar că abuzul nu este acceptat. Dacă nu funcționează și este sigur, îi puteți cere să coboare.</p>
+  </details>
+</article>
+<article class="q" id="q10" data-answer="2">
+  <p class="meta">Question 10 · Staying safe · Multiple choice</p>
+  <h3>You can&#x27;t calm an aggressive passenger. What should you do?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Leave the engine running and get out</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Stay in the car and argue</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Stop somewhere safe, switch off, take the keys and get out</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Keep driving to the destination as fast as possible</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: C.</strong> Stop somewhere safe, switch off, take the keys and get out</p>
+    <p class="expl" lang="en" data-lang="en">Get away from the danger. Taking the keys means the passenger can&#x27;t drive off in your car.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>خطرے سے دور ہو جائیں۔ چابیاں ساتھ لینے کا مطلب ہے کہ مسافر آپ کی گاڑی لے کر نہیں جا سکتا۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>বিপদ থেকে সরে যান। চাবি সঙ্গে নিলে যাত্রী আপনার গাড়ি নিয়ে চলে যেতে পারবে না।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>ابتعد عن الخطر. أخذ المفاتيح يعني أن الراكب لا يستطيع القيادة بسيارتك.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Îndepărtați-vă de pericol. Dacă luați cheile, pasagerul nu poate pleca cu mașina dvs.</p>
+  </details>
+</article>
+<article class="q" id="q11" data-answer="0">
+  <p class="meta">Question 11 · Driver behaviour · Multiple choice</p>
+  <h3>Which of these topics should you never make jokes about?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Someone&#x27;s religion</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>A football match on the radio</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Roadworks on the route</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Your own driving mistakes</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: A.</strong> Someone&#x27;s religion</p>
+    <p class="expl" lang="en" data-lang="en">Jokes or comments about religion, race, age, disability, sexual orientation or gender identity are unacceptable.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>مذہب، نسل، عمر، معذوری، جنسی رجحان یا صنفی شناخت کے بارے میں مذاق یا تبصرے ناقابلِ قبول ہیں۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>ধর্ম, জাতি, বয়স, প্রতিবন্ধিতা, যৌন অভিমুখিতা বা লিঙ্গ পরিচয় নিয়ে ঠাট্টা বা মন্তব্য গ্রহণযোগ্য নয়।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>النكات أو التعليقات عن الدين أو العرق أو العمر أو الإعاقة أو الميول الجنسية أو الهوية الجندرية غير مقبولة.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Glumele sau comentariile despre religie, rasă, vârstă, dizabilitate, orientare sexuală sau identitate de gen sunt inacceptabile.</p>
+  </details>
+</article>
+<article class="q" id="q12" data-answer="1">
+  <p class="meta">Question 12 · Driving and parking in London · Multiple choice</p>
+  <h3>Can you wait for a passenger on a double yellow line?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Yes, for up to 10 minutes</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>No, you can only stop there long enough for them to get in or out</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Yes, if you are early</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Yes, if your engine is off</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: B.</strong> No, you can only stop there long enough for them to get in or out</p>
+    <p class="expl" lang="en" data-lang="en">Picking up and dropping off is allowed, but waiting is not.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>مسافر اٹھانا اور اتارنا جائز ہے، لیکن انتظار کرنا نہیں۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>যাত্রী তোলা ও নামানো অনুমোদিত, কিন্তু অপেক্ষা করা নয়।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>الاصطحاب والإنزال مسموحان، لكن الانتظار غير مسموح.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Luarea și lăsarea pasagerilor sunt permise, dar așteptarea nu.</p>
+  </details>
+</article>
+<article class="q" id="q13" data-answer="1">
+  <p class="meta">Question 13 · Driving and parking in London · Multiple choice</p>
+  <h3>What could happen if you wait on a taxi rank in your PHV?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Your operator gets the fine</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>A fine, and TfL could suspend or revoke your licence</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Nothing, if you leave when a taxi comes</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Only a warning letter</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: B.</strong> A fine, and TfL could suspend or revoke your licence</p>
+    <p class="expl" lang="en" data-lang="en">Using a taxi rank can lead to a fine and licensing action by TfL.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>ٹیکسی رینک استعمال کرنے پر جرمانہ اور TfL کی طرف سے لائسنس کے خلاف کارروائی ہو سکتی ہے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>ট্যাক্সি র‍্যাঙ্ক ব্যবহার করলে জরিমানা এবং TfL-এর লাইসেন্স সংক্রান্ত ব্যবস্থা হতে পারে।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>استخدام موقف التاكسي قد يؤدي إلى غرامة وإجراء ضد رخصتك من TfL.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Folosirea unei stații de taxi poate duce la amendă și la măsuri de licențiere din partea TfL.</p>
+  </details>
+</article>
+<article class="q" id="q14" data-answer="3">
+  <p class="meta">Question 14 · Safer driving · Multiple choice</p>
+  <h3>You are stopped at traffic lights. Can you use your hand-held phone?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Yes, if it is your operator calling</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Yes, because you are not moving</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Yes, if the call is short</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>No, it is still illegal when you are stopped in traffic</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: D.</strong> No, it is still illegal when you are stopped in traffic</p>
+    <p class="expl" lang="en" data-lang="en">Using a hand-held phone is illegal while driving, including when queuing or waiting at lights.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>گاڑی چلاتے ہوئے ہاتھ میں فون استعمال کرنا غیر قانونی ہے، قطار میں یا ٹریفک لائٹ پر رکے ہوئے بھی۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>গাড়ি চালানোর সময় হাতে ফোন ব্যবহার বেআইনি, লাইনে বা ট্রাফিক লাইটে দাঁড়িয়ে থাকলেও।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>استخدام الهاتف باليد أثناء القيادة غير قانوني، بما في ذلك أثناء الانتظار في الطابور أو عند الإشارات.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Folosirea telefonului ținut în mână în timp ce conduceți este ilegală, inclusiv când stați la coadă sau la semafor.</p>
+  </details>
+</article>
+<article class="q" id="q15" data-answer="3">
+  <p class="meta">Question 15 · Safer driving · Multiple choice</p>
+  <h3>Who must wear a seatbelt in a PHV?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Only passengers on long journeys</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Only the driver</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Only passengers in the front</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>All adults</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: D.</strong> All adults</p>
+    <p class="expl" lang="en" data-lang="en">Every adult must belt up, and you should encourage adult passengers to do so for their own safety.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>ہر بالغ کو سیٹ بیلٹ لگانا ضروری ہے، اور آپ کو بالغ مسافروں کو ان کی اپنی حفاظت کے لیے ایسا کرنے کی ترغیب دینی چاہیے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>প্রত্যেক প্রাপ্তবয়স্ককে সিটবেল্ট পরতে হবে, এবং আপনার উচিত প্রাপ্তবয়স্ক যাত্রীদের নিজেদের নিরাপত্তার জন্য তা পরতে উৎসাহ দেওয়া।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>يجب على كل بالغ ربط حزام الأمان، وعليك تشجيع الركاب البالغين على ذلك من أجل سلامتهم.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Fiecare adult trebuie să-și pună centura, iar dvs. trebuie să-i încurajați pe pasagerii adulți să o facă pentru siguranța lor.</p>
+  </details>
+</article>
+<article class="q" id="q16" data-answer="1">
+  <p class="meta">Question 16 · Equality and disability · Multiple choice</p>
+  <h3>A passenger arrives with an assistance dog. What must you do?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Charge extra for the dog</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Accept them and let the dog sit in the footwell with them</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Refuse, because dogs aren&#x27;t allowed</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Put the dog in the boot</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: B.</strong> Accept them and let the dog sit in the footwell with them</p>
+    <p class="expl" lang="en" data-lang="en">The law requires PHV drivers to accept assistance dogs and let them sit in the footwell with the passenger.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>قانون کے مطابق PHV ڈرائیوروں کو اسسٹنس ڈاگز قبول کرنے اور انہیں مسافر کے ساتھ پیروں والی جگہ پر بیٹھنے دینا ہوتا ہے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>আইন অনুযায়ী PHV ড্রাইভারদের সহায়ক কুকুর নিতে হবে এবং যাত্রীর সঙ্গে পায়ের কাছে বসতে দিতে হবে।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>يُلزم القانون سائقي PHV بقبول كلاب المساعدة والسماح لها بالجلوس عند قدمي الراكب.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Legea îi obligă pe șoferii PHV să accepte câinii de asistență și să-i lase să stea la picioarele pasagerului.</p>
+  </details>
+</article>
+<article class="q" id="q17" data-answer="1">
+  <p class="meta">Question 17 · Equality and disability · Multiple choice</p>
+  <h3>How should you give change to a vision-impaired passenger?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Hand it over in one go without counting</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Count the coins and notes into their hand</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Give it to their companion</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Put it all on the seat</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: B.</strong> Count the coins and notes into their hand</p>
+    <p class="expl" lang="en" data-lang="en">Counting money into their hand lets them know exactly what they have received.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>پیسے ان کے ہاتھ میں گن کر دینے سے انہیں پتہ چلتا ہے کہ انہیں بالکل کتنا ملا۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>টাকা তাদের হাতে গুনে দিলে তারা ঠিক কত পেলেন তা জানতে পারেন।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>عدّ النقود في يده يجعله يعرف بالضبط ما استلمه.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Numărarea banilor în mâna lor îi face să știe exact ce au primit.</p>
+  </details>
+</article>
+<article class="q" id="q18" data-answer="1">
+  <p class="meta">Question 18 · Safeguarding · Multiple choice</p>
+  <h3>A young passenger tells you they are going to meet someone they met online for the first time. What might this be?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>A matter only for their school</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>A sign that they could be at risk</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>A reason to refuse the booking</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Normal, and nothing to think about</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: B.</strong> A sign that they could be at risk</p>
+    <p class="expl" lang="en" data-lang="en">Travelling to meet a stranger, perhaps from the internet, is one of the signs of risk.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>کسی اجنبی سے، شاید انٹرنیٹ پر ملنے والے سے، ملنے جانا خطرے کی علامات میں سے ایک ہے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>অচেনা কারও সঙ্গে, হয়তো ইন্টারনেটে পরিচয় হওয়া কারও সঙ্গে দেখা করতে যাওয়া ঝুঁকির একটি লক্ষণ।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>السفر لمقابلة شخص غريب، ربما من الإنترنت، من علامات الخطر.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Să mergi să te întâlnești cu un străin, poate cunoscut pe internet, este unul dintre semnele de risc.</p>
+  </details>
+</article>
+<article class="q" id="q19" data-answer="0">
+  <p class="meta">Question 19 · Safeguarding · Multiple choice</p>
+  <h3>You think a passenger may be a child at risk. Who must you report it to?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Your operator and the police</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>Only the child&#x27;s school</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>Only your family</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Nobody, unless you are certain</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: A.</strong> Your operator and the police</p>
+    <p class="expl" lang="en" data-lang="en">If you believe someone is at risk, or they tell you so, tell both your operator and the police.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>اگر آپ کو لگے کہ کوئی خطرے میں ہے، یا وہ خود بتائے، تو اپنے آپریٹر اور پولیس دونوں کو بتائیں۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>কেউ ঝুঁকিতে আছে মনে হলে, বা তিনি নিজে বললে, অপারেটর ও পুলিশ দুজনকেই জানান।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>إذا اعتقدت أن شخصًا ما في خطر، أو أخبرك بذلك، فأبلغ المشغّل والشرطة كليهما.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Dacă credeți că cineva este în pericol sau vă spune asta, anunțați atât operatorul, cât și poliția.</p>
+  </details>
+</article>
+<article class="q" id="q20" data-answer="2">
+  <p class="meta">Question 20 · Ridesharing · Multiple choice</p>
+  <h3>What is one safety risk of ridesharing?</h3>
+  <ol class="opts"><li><button type="button" class="opt" data-i="0"><span class="key">A</span><span>Fares are always higher</span></button></li><li><button type="button" class="opt" data-i="1"><span class="key">B</span><span>The vehicle uses more fuel</span></button></li><li><button type="button" class="opt" data-i="2"><span class="key">C</span><span>One passenger may learn personal information about another</span></button></li><li><button type="button" class="opt" data-i="3"><span class="key">D</span><span>Drivers need a different licence</span></button></li></ol>
+  <details class="ans">
+    <summary>Show answer</summary>
+    <p class="right"><strong>Answer: C.</strong> One passenger may learn personal information about another</p>
+    <p class="expl" lang="en" data-lang="en">A stranger could find out someone&#x27;s address, workplace, routine or whether they live alone.</p><p class="expl" lang="ur" dir="rtl" data-lang="ur" hidden>کوئی اجنبی کسی کا پتہ، کام کی جگہ، معمولات یا یہ جان سکتا ہے کہ وہ اکیلا رہتا ہے۔</p><p class="expl" lang="bn" dir="ltr" data-lang="bn" hidden>একজন অপরিচিত কারও ঠিকানা, কর্মস্থল, রুটিন বা তিনি একা থাকেন কি না তা জেনে ফেলতে পারে।</p><p class="expl" lang="ar" dir="rtl" data-lang="ar" hidden>قد يعرف شخص غريب عنوان شخص ما أو مكان عمله أو روتينه أو ما إذا كان يعيش وحده.</p><p class="expl" lang="ro" dir="ltr" data-lang="ro" hidden>Un străin ar putea afla adresa cuiva, locul de muncă, rutina sau dacă locuiește singur.</p>
+  </details>
+</article>
+
+<section class="panel">
+  <h2>Want the full SERU practice?</h2>
+  <p><strong>SERU Mock Test: PCO Licence</strong> has 433 original questions across all 10 sections of the PHV Driver's Handbook:</p>
+  <ul>
+    <li>Full mock tests in the real format: 37 questions, 45 minutes, 60% to pass</li>
+    <li>Practice by section, with short study notes in plain English</li>
+    <li>Every explanation in English, Urdu, Bengali, Arabic and Romanian</li>
+    <li>Review brings back the questions you got wrong until you know them</li>
+    <li>Works offline, no account, no ads</li>
+  </ul>
+  <p>Free to try: 30 questions, the section 1 notes and a full mock test. Unlock everything with one payment of £6.99. No subscription.</p>
+  <a class="cta" href="https://play.google.com/store/apps/details?id=com.bevylabs.pco_prep">Get it on Google Play</a>
+</section>
+
+<h2 id="sections">What the SERU test covers</h2>
+<p>SERU questions come from the 10 sections of TfL's PHV Driver's Handbook:</p>
+<ol class="sections"><li>Driver licensing</li><li>Vehicle licensing</li><li>Private hire journeys</li><li>Staying safe</li><li>Driver behaviour</li><li>Driving and parking in London</li><li>Safer driving</li><li>Equality and disability</li><li>Safeguarding</li><li>Ridesharing</li></ol>
+
+<h2 id="faq">SERU questions people ask</h2>
+<details class="faq"><summary>What is the SERU assessment?</summary><p>SERU stands for Safety, Equality and Regulatory Understanding. Transport for London (TfL) requires London private hire (PHV, often called PCO) drivers to pass it. It tests what is in TfL&#x27;s PHV Driver&#x27;s Handbook: licensing, private hire journeys, staying safe, driver behaviour, driving and parking in London, safer driving, equality and disability, safeguarding and ridesharing.</p></details><details class="faq"><summary>What is the SERU test format?</summary><p>It is a computer-based test taken at TfL, with multiple choice questions and fill-in-the-gap sentences. It is widely reported as 37 questions in 45 minutes, with 60% needed to pass. Check TfL&#x27;s SERU page for the latest details before your test.</p></details><details class="faq"><summary>How many people pass SERU?</summary><p>Fewer than you might think. Freedom of information figures reported by Taxi-Point showed that only 54% of private hire applicants passed between October 2025 and April 2026. Practising with timed mock tests and reviewing your wrong answers makes a real difference.</p></details><details class="faq"><summary>How should I prepare for SERU?</summary><p>Read the PHV Driver&#x27;s Handbook one section at a time, then practise questions on that section straight away. Once you are scoring well, take full timed mock tests (37 questions, 45 minutes) and go back over every question you got wrong until you understand why the right answer is right.</p></details><details class="faq"><summary>Can I get SERU explanations in Urdu, Bengali, Arabic or Romanian?</summary><p>Yes. The SERU test itself is in English, but the SERU Mock Test app explains every answer in English, Urdu, Bengali, Arabic and Romanian, so you can understand the rules in the language you are most comfortable with.</p></details><details class="faq"><summary>Is there a SERU practice app without a subscription?</summary><p>Yes. SERU Mock Test: PCO Licence (by BevyLabs, Android) is free to try with 30 practice questions, the section 1 study notes and a full mock test. One payment of £6.99 unlocks all 433 questions, every mock test and all study notes for good. No subscription, no ads, and it works offline.</p></details><details class="faq"><summary>Is this page or the app official TfL material?</summary><p>No. BevyLabs is independent and is not affiliated with, endorsed by or connected to Transport for London. All questions are written by us. Always read TfL&#x27;s own PHV Driver&#x27;s Handbook too.</p></details>
+
+<footer>
+  <p class="small">BevyLabs is independent and is not affiliated with, endorsed by or connected to Transport for London (TfL). All questions and explanations are written by BevyLabs to help you learn the topics in the SERU assessment. Always read TfL's PHV Driver's Handbook too.</p>
+  <p class="small">Updated 2026-11-06 · <a href="../pco_prep_privacy_policy.html">App privacy policy</a> · <a href="mailto:bevylabs@gmail.com">bevylabs@gmail.com</a></p>
+</footer>
+</main>
+<script>
+(function () {
+  var done = 0, right = 0, total = document.querySelectorAll('.q').length;
+  var score = document.getElementById('score');
+  document.querySelectorAll('.q').forEach(function (q) {
+    var answer = +q.dataset.answer;
+    q.querySelectorAll('.opt').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var picked = +b.dataset.i;
+        q.querySelectorAll('.opt').forEach(function (o) {
+          o.disabled = true;
+          if (+o.dataset.i === answer) o.classList.add('right');
+        });
+        if (picked !== answer) b.classList.add('wrong'); else right++;
+        q.querySelector('.ans').open = true;
+        done++;
+        score.textContent = right + ' right out of ' + done + ' answered' + (done === total ? ' · all done!' : '');
+      });
+    });
+  });
+  var lang = document.getElementById('lang');
+  lang.addEventListener('change', function () {
+    document.querySelectorAll('.expl').forEach(function (p) {
+      p.hidden = p.dataset.lang !== lang.value && p.dataset.lang !== 'en';
+    });
+  });
+})();
+</script>
+</body>
+</html>
