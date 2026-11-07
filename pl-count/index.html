@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shrimp seed (PL) count calculator: PL per gram, batch total and bonus</title>
+<meta name="description" content="Free calculators for shrimp hatcheries and farmers: PL per gram from a weighed sample, total seed in a batch, the real cost of the bonus, and how much seed a pond needs. Plus how to count PL more accurately.">
+<link rel="canonical" href="https://bevylabs.github.io/pl-count/">
+<link rel="icon" href="../favicon.png">
+<meta property="og:title" content="Shrimp seed (PL) count calculator">
+<meta property="og:description" content="PL per gram, batch total, bonus cost and pond stocking, worked out in your browser. Free, no sign-up.">
+<meta property="og:url" content="https://bevylabs.github.io/pl-count/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Shrimp seed (PL) count calculator",
+  "url": "https://bevylabs.github.io/pl-count/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (web browser)",
+  "description": "Works out PL per gram from a weighed sample, the total PL in a batch, the cost of the hatchery bonus and the seed a pond needs.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "publisher": {"@type": "Organization", "name": "BevyLabs", "url": "https://bevylabs.github.io/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you count shrimp seed (PL) by weight?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Take a small scoop of PL, blot off the water, weigh it on a jewellery scale and count every PL in it. Divide the count by the weight to get PL per gram. Weigh the whole batch the same way and multiply by PL per gram to estimate the total. Repeat with two or three samples and use the average."}
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a weighed PL count often wrong?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Water. PL are tiny, so a few drops of water left on the sample add weight without adding PL. That lowers PL per gram, and the error is multiplied across the whole batch. Blot the sample the same way every time, and count more than one sample."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the bonus in shrimp seed sales?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Hatcheries, especially in India, often add extra seed on top of the invoiced number to cover transport and acclimation losses. In India this bonus is commonly 30 to 50 percent. Because the bonus is given free, an inaccurate count means either the hatchery gives away more than it meant to, or the farmer stocks a different number than they think."}
+    },
+    {
+      "@type": "Question",
+      "name": "Should farmers count the seed they receive?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. ICAR-CIBA advises farmers to count a bag or two of the supplied seed instead of relying only on the invoice, so that the stocking density in the pond is what they planned."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an app that counts shrimp PL from a photo?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Shrimp Vision is an Android app that counts PL from a phone photo of a sample in a white tray. It draws a box on every PL so you can check the count, works without internet, makes batch estimates from the sample weight, and creates a count certificate you can share on WhatsApp. It has a 30-day free trial."}
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #f3f7f8; --card: #ffffff; --ink: #18272b; --muted: #55686d; --line: #d5e2e5;
+  --brand: #0e7490; --brand-ink: #ffffff; --soft: #e2f1f5; --result: #ecfdf5; --result-ink: #065f46;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1719; --card: #162225; --ink: #e5eff1; --muted: #9db2b7; --line: #29393d;
+    --brand: #38bdf8; --brand-ink: #062030; --soft: #1b2d31; --result: #0f2a22; --result-ink: #6ee7b7;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; }
+nav { padding: 16px 0 0; font-size: 0.9rem; }
+nav a, a { color: var(--brand); }
+h1 { font-size: 1.75rem; line-height: 1.25; margin: 20px 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.3rem; margin: 36px 0 8px; }
+h3 { font-size: 1.05rem; margin: 0 0 4px; }
+.lead { color: var(--muted); margin: 0 0 8px; }
+.terms { font-size: 0.9rem; color: var(--muted); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin: 14px 0; }
+.card p.hint { color: var(--muted); font-size: 0.92rem; margin: 0 0 12px; }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+label { display: block; font-size: 0.9rem; font-weight: 600; }
+input, select { width: 100%; margin-top: 4px; padding: 10px 12px; font: inherit; color: var(--ink);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
+input:focus, select:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+.out { margin-top: 14px; background: var(--result); color: var(--result-ink); border-radius: 10px; padding: 12px 14px; }
+.out strong { font-size: 1.15rem; }
+.out p { margin: 2px 0; }
+ol, ul { padding-left: 1.2em; }
+li { margin: 4px 0; }
+.app { display: flex; gap: 16px; align-items: flex-start; }
+.app img { width: 72px; height: 72px; border-radius: 16px; flex: none; }
+.btn { display: inline-block; margin-top: 10px; text-decoration: none; background: var(--brand); color: var(--brand-ink);
+  padding: 10px 18px; border-radius: 10px; font-weight: 700; }
+details { border-top: 1px solid var(--line); padding: 10px 0; }
+details:last-of-type { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; font-weight: 600; }
+details p { margin: 8px 0 0; color: var(--muted); }
+footer { margin-top: 40px; color: var(--muted); font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><a href="../">BevyLabs</a></nav>
+
+  <h1>Shrimp seed (PL) count calculator</h1>
+  <p class="lead">Work out PL per gram, the total seed in a batch, what the bonus really costs, and how much seed a pond needs. Free, no sign-up, and nothing you type leaves your phone.</p>
+  <p class="terms">Also called: shrimp seed, vannamei seed, post-larvae, PL10 / PL12, benur (Indonesia), tôm giống (Vietnam), ลูกกุ้ง (Thailand), రొయ్య పిల్ల (Telugu).</p>
+
+  <h2 id="per-gram">1. PL per gram and batch total</h2>
+  <div class="card">
+    <p class="hint">Weigh a blotted sample, count every PL in it, then enter the weight of the whole batch.</p>
+    <div class="grid">
+      <label>PL counted in the sample<input id="s-count" type="number" inputmode="numeric" min="0" placeholder="e.g. 412"></label>
+      <label>Sample weight (g)<input id="s-weight" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 1.00"></label>
+      <label>Batch weight (g)<input id="b-weight" type="number" inputmode="decimal" min="0" step="1" placeholder="e.g. 500"></label>
+    </div>
+    <div class="out" id="out-1" aria-live="polite"><p>Fill in the sample count and weight.</p></div>
+  </div>
+
+  <h2 id="bonus">2. What the bonus costs</h2>
+  <div class="card">
+    <p class="hint">Bonus seed is given free on top of the billed number. See how much it is worth, and what a small counting error adds.</p>
+    <div class="grid">
+      <label>Billed PL<input id="billed" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 200000"></label>
+      <label>Bonus (%)<input id="bonus-pct" type="number" inputmode="decimal" min="0" step="1" placeholder="e.g. 30"></label>
+      <label>Price per 1,000 PL<input id="price" type="number" inputmode="decimal" min="0" step="1" placeholder="e.g. 300"></label>
+      <label>Counting error (%)<input id="err" type="number" inputmode="decimal" min="0" step="0.5" value="5"></label>
+    </div>
+    <div class="out" id="out-2" aria-live="polite"><p>Fill in the billed PL, bonus and price.</p></div>
+  </div>
+
+  <h2 id="stocking">3. Seed needed for a pond</h2>
+  <div class="card">
+    <p class="hint">Enter your pond size and the stocking density you plan. Use the density your technician or hatchery advises for your system.</p>
+    <div class="grid">
+      <label>Pond area<input id="area" type="number" inputmode="decimal" min="0" step="0.1" placeholder="e.g. 1"></label>
+      <label>Unit<select id="unit"><option value="acre">acres</option><option value="ha">hectares</option><option value="m2">m²</option></select></label>
+      <label>Density (PL per m²)<input id="density" type="number" inputmode="decimal" min="0" step="1" placeholder="e.g. 40"></label>
+      <label>Expected loss before stocking (%)<input id="loss" type="number" inputmode="decimal" min="0" step="1" value="0"></label>
+    </div>
+    <div class="out" id="out-3" aria-live="polite"><p>Fill in the area and density.</p></div>
+  </div>
+
+  <h2 id="how">How to count PL more accurately</h2>
+  <div class="card">
+    <h3>Counting by weight</h3>
+    <ol>
+      <li>Scoop a small sample and blot it on a wet cloth for the same few seconds every time.</li>
+      <li>Weigh it on a jewellery scale (0.01 g). About 1 g is enough.</li>
+      <li>Count every PL in the sample. Count each one; don't estimate.</li>
+      <li>Do two or three samples and use the average PL per gram.</li>
+      <li>Weigh the batch the same way and multiply.</li>
+    </ol>
+    <p>The biggest error is water. A few drops left on a 1 g sample can change PL per gram a lot, and that error is multiplied across the whole batch.</p>
+  </div>
+  <div class="card">
+    <h3>Counting by eye</h3>
+    <p>Spread a few hundred PL in a shallow white bowl or tray and count with a hand tally counter. It is accurate when the counter is fresh, but packing often happens in the early morning hours, and tired eyes miss PL.</p>
+  </div>
+  <div class="card">
+    <h3>For farmers receiving seed</h3>
+    <p>ICAR-CIBA advises counting a bag or two of the seed you receive instead of trusting only the invoice. Then you know the real number you are stocking, bonus included.</p>
+  </div>
+
+  <h2 id="app">Count PL from a photo</h2>
+  <div class="card app">
+    <img src="../images/apps/shrimp-vision.png" alt="Shrimp Vision icon" width="72" height="72">
+    <div>
+      <h3>Shrimp Vision (Android)</h3>
+      <ul>
+        <li>Put a sample in a white tray, take a photo, and get the count in seconds</li>
+        <li>A box on every PL, so you can see what was counted, and tap to fix mistakes</li>
+        <li>Count one sample across several photos, and get PL per gram and the batch total</li>
+        <li>Share a PL count certificate on WhatsApp or save it as a PDF</li>
+        <li>Works without internet; your counts stay on your phone</li>
+      </ul>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=org.bevylabs.shrimpvision">Try it free for 30 days</a>
+    </div>
+  </div>
+
+  <h2 id="faq">Questions</h2>
+  <details><summary>How do you count shrimp seed (PL) by weight?</summary><p>Blot and weigh a small sample, count every PL in it, and divide the count by the weight to get PL per gram. Multiply by the weight of the whole batch. Use the average of two or three samples.</p></details>
+  <details><summary>Why is a weighed PL count often wrong?</summary><p>Water left on the sample adds weight without adding PL, which lowers PL per gram, and the error grows across the whole batch. Blot the same way every time and count more than one sample.</p></details>
+  <details><summary>What is the bonus in shrimp seed sales?</summary><p>Extra seed given free on top of the invoiced number to cover transport and acclimation losses. In India it is commonly 30 to 50 percent. An inaccurate count means the hatchery gives away more than it meant to, or the farmer stocks a different number than planned.</p></details>
+  <details><summary>Should farmers count the seed they receive?</summary><p>Yes. ICAR-CIBA advises counting a bag or two of the supplied seed so the stocking density is what you planned.</p></details>
+  <details><summary>Is there an app that counts shrimp PL from a photo?</summary><p>Shrimp Vision counts PL from a phone photo of a sample in a white tray, shows a box on every PL, works offline, and makes shareable count certificates. It has a 30-day free trial on Google Play.</p></details>
+
+  <footer>
+    <p>Made by <a href="../">BevyLabs</a>. Calculations run in your browser. Questions or corrections: <a href="mailto:bevylabs@gmail.com">bevylabs@gmail.com</a></p>
+  </footer>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var num = function (id) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; };
+  var fmt = function (n, d) { return n.toLocaleString(undefined, { maximumFractionDigits: d || 0 }); };
+
+  function one() {
+    var c = num('s-count'), w = num('s-weight'), b = num('b-weight'), o = $('out-1');
+    if (!c || !w) { o.innerHTML = '<p>Fill in the sample count and weight.</p>'; return; }
+    var pg = c / w;
+    var html = '<p><strong>' + fmt(pg, 1) + ' PL per gram</strong></p>';
+    if (b) html += '<p>Batch of ' + fmt(b) + ' g ≈ <strong>' + fmt(Math.round(pg * b)) + ' PL</strong></p>';
+    else html += '<p>Add the batch weight to see the total.</p>';
+    o.innerHTML = html;
+  }
+
+  function two() {
+    var billed = num('billed'), pct = num('bonus-pct'), price = num('price'), err = num('err'), o = $('out-2');
+    if (!billed || !price) { o.innerHTML = '<p>Fill in the billed PL, bonus and price.</p>'; return; }
+    var bonus = billed * pct / 100, total = billed + bonus;
+    var bonusValue = bonus / 1000 * price;
+    var errPl = total * err / 100, errValue = errPl / 1000 * price;
+    o.innerHTML =
+      '<p>Bonus: <strong>' + fmt(Math.round(bonus)) + ' PL</strong> free, worth <strong>' + fmt(bonusValue, 2) + '</strong></p>' +
+      '<p>Total dispatched: ' + fmt(Math.round(total)) + ' PL</p>' +
+      (err ? '<p>A ' + fmt(err, 1) + '% counting error on that is ' + fmt(Math.round(errPl)) + ' PL, worth ' + fmt(errValue, 2) + ' per order.</p>' : '');
+  }
+
+  function three() {
+    var a = num('area'), d = num('density'), loss = parseFloat($('loss').value) || 0, o = $('out-3');
+    if (!a || !d) { o.innerHTML = '<p>Fill in the area and density.</p>'; return; }
+    var m2 = a * ({ acre: 4046.86, ha: 10000, m2: 1 })[$('unit').value];
+    var need = m2 * d;
+    var order = loss > 0 && loss < 100 ? need / (1 - loss / 100) : need;
+    o.innerHTML = '<p>' + fmt(m2) + ' m² × ' + fmt(d) + ' PL/m² = <strong>' + fmt(Math.round(need)) + ' PL</strong> to stock</p>' +
+      (loss > 0 && loss < 100 ? '<p>With ' + fmt(loss, 1) + '% loss, receive about <strong>' + fmt(Math.round(order)) + ' PL</strong></p>' : '');
+  }
+
+  ['s-count', 's-weight', 'b-weight'].forEach(function (id) { $(id).addEventListener('input', one); });
+  ['billed', 'bonus-pct', 'price', 'err'].forEach(function (id) { $(id).addEventListener('input', two); });
+  ['area', 'unit', 'density', 'loss'].forEach(function (id) { $(id).addEventListener('input', three); });
+})();
+</script>
+</body>
+</html>
